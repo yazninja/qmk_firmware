@@ -6,6 +6,7 @@ on:
     - sn32
     - sn32_openrgb
     - sn32_rebase
+    - sn32_openrgb_rebase
   pull_request:
     branches:
     - sn32
