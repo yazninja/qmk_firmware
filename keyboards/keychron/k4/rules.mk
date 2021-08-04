@@ -31,6 +31,10 @@ ARMV = 6
 # BOOTLOADER = flash
 SN32_BOOTLOADER_ADDRESS = 0x1FFF0301
 
+# Custom PFPA assignment
+# PWM0-2 is B for the k4
+SN32_CUSTOM_PFPA = 0x00000007
+
 OPT_DEFS = -O2
 
 # Options to pass to dfu-util when flashing
