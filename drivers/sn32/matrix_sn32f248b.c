@@ -109,9 +109,13 @@ void matrix_init(void) {
 
     // Enable Timer Clock
     SN_SYS1->AHBCLKEN_b.CT16B1CLKEN = 1;
-
+#ifndef SN32_CUSTOM_PFPA
     // PFPA - Map all PWM outputs to their PWM A pins
     SN_PFPA->CT16B1 = 0x00000000;
+#else
+    // PFPA - Map PWM outputs to their custom pins
+    SN_PFPA->CT16B1 = SN32_CUSTOM_PFPA;
+#endif
 
     pwm_en_msk = 0;
     
