@@ -18,6 +18,8 @@ BOARDS = [
     'keychron/k6/rgb',
     'keychron/k6/rgb/via',
     'keychron/k6/white',
+    'keychron/k7/rgb',
+    'keychron/k7/rgb/optical',
     'keychron/k8',
     'keychron/k8/via',
     'ajazz/ak33/rev1',
