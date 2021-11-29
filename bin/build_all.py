@@ -1,5 +1,6 @@
 import subprocess
 import os
+import sys
 
 BOARDS = [
     'redragon/k552/rev1',
@@ -29,5 +30,9 @@ BOARDS = [
     'gmmk/full/rev3',
     'marvo/kg938']
 
+error = False
 for kb in BOARDS:
-    subprocess.run(f"bin/qmk compile -kb {kb} -km all -j{os.cpu_count()}", shell=True)
+    if subprocess.run(f"qmk compile -kb {kb} -km all -j{os.cpu_count()}", shell=True).returncode != 0:
+        error = True
+if error:
+    sys.exit(1)

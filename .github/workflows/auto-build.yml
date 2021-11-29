@@ -26,6 +26,7 @@ jobs:
       run: python3 bin/build_all.py
 
     - uses: actions/upload-artifact@v2
+      if: ${{ always() }}
       with:
         name: Pre-Compiled Firmware
         path: '*.bin'
