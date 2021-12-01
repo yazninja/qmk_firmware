@@ -27,11 +27,12 @@ jobs:
     - name: Declare some variables
       id: vars
       shell: bash
-      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-
+      run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF_NAME//\//-})"
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
-        name: Pre-Compiled Firmware (${{ github.ref_name }}-${{ steps.vars.outputs.sha_short }})
+        name: Pre-Compiled Firmware (${{ steps.vars.outputs.branch }}-${{ steps.vars.outputs.sha_short }})
         path: '*.bin'
