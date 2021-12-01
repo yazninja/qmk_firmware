@@ -24,9 +24,14 @@ jobs:
       run: pip3 install -r requirements.txt
     - name: Build keyboards
       run: python3 bin/build_all.py
+    - name: Declare some variables
+      id: vars
+      shell: bash
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
 
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
       with:
-        name: Pre-Compiled Firmware
+        name: Pre-Compiled Firmware (${{ github.ref_name }}-${{ steps.vars.outputs.sha_short }})
         path: '*.bin'
