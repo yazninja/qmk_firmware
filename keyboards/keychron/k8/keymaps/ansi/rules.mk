@@ -6,7 +6,6 @@ EXTRAKEY_ENABLE = yes    # Audio control and System control
 # MAGIC_ENABLE = yes
 # MAGIC_KEYCODE_ENABLE = yes
 
-VIA_ENABLE = no
 # BOOTMAGIC_ENABLE = no	# https://beta.docs.qmk.fm/using-qmk/hardware-features/feature_bootmagic
 # NKRO_ENABLE = no
 

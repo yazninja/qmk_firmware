@@ -20,13 +20,13 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x05AC
-#define PRODUCT_ID      0x0250
+#define VENDOR_ID       0x3434
+#define PRODUCT_ID      0xFE2F
 #define DEVICE_VER      0x0001
 
 #define MANUFACTURER    Keychron
-#define PRODUCT         K8 iso uk
-#define DESCRIPTION     K8 ISO UK RGB Hotswap
+#define PRODUCT         K8 ISO
+#define DESCRIPTION     K8 ISO RGB Hotswap
 
 /* key matrix size */
 #define MATRIX_ROWS 6
@@ -48,5 +48,9 @@
 #define DEBOUNCE 25
 
 //#define FORCE_NKRO
+
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+#define RGB_MATRIX_KEYPRESSES
+#define RGB_MATRIX_KEYRELEASES
 
 #include "config_led.h"

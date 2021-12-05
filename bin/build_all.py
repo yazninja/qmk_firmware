@@ -19,6 +19,7 @@ BOARDS = [
     'keychron/k6/rgb/via',
     'keychron/k6/white',
     'keychron/k8',
+    'keychron/k8/via',
     'ajazz/ak33/rev1',
     'ajazz/ak33/rev2',
     'smartduck/xs61',
