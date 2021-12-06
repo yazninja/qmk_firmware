@@ -39,7 +39,7 @@
 #define MATRIX_ROW_PINS { D11, D10, D9, D8, D7 }
 
 // Connects each switch in the dip switch to the GPIO pin of the MCU
-//#define DIP_SWITCH_PINS { D5, D6 }
+#define DIP_SWITCH_PINS { D4 }
 
 /* LED Status indicators */
 #define LED_CAPS_LOCK_PIN B9
@@ -52,7 +52,5 @@
 
 #if defined(OPTICAL_MATRIX)
 #define PRESSED_KEY_PIN_STATE 1
-#define SKIP_THIS_NOF_MATRIX_SCANS 1
 #define DELAY_ENABLE 1
-#define SCAN_ON_EXTRA_ROW 1
 #endif
