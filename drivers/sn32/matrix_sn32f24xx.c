@@ -35,11 +35,11 @@ Ported to QMK by Stephen Peery <https://github.com/smp4488/>
 #    define PRESSED_KEY_PIN_STATE 0
 #endif
 
-#if defined(DELAY_ENABLE)
+#if defined(DELAY_LOOP)
 void delay(void){
     //should give 3500/48000000Mhz = 73us delay
     //we want 73 micro thus to get value
-    for (int i = 0; i < 3500; ++i) {
+    for (int i = 0; i < DELAY_LOOP; ++i) {
         __asm__ volatile("" ::: "memory");
     }
     //wait_us(73); //does not work
@@ -131,7 +131,7 @@ void matrix_scan_keys(matrix_row_t raw_matrix[], uint8_t current_row){
                 for (uint8_t col_index = 0; col_index < MATRIX_COLS; col_index++) {
                     // Enable the column
                     writePinLow(col_pins[col_index]);
-                    #if defined(DELAY_ENABLE)
+                    #if defined(DELAY_LOOP)
                     delay();
                     #endif
                     for (uint8_t row_index = 0; row_index < MATRIX_ROWS; row_index++) {
@@ -158,7 +158,7 @@ void matrix_scan_keys(matrix_row_t raw_matrix[], uint8_t current_row){
                 for (uint8_t row_index = 0; row_index < MATRIX_ROWS; row_index++) {
                     // Enable the row
                     writePinLow(row_pins[row_index]);
-                    #if defined(DELAY_ENABLE)
+                    #if defined(DELAY_LOOP)
                     delay();
                     #endif
                     for (uint8_t col_index = 0; col_index < MATRIX_COLS; col_index++) {
