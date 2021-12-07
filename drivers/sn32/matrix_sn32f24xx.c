@@ -146,6 +146,10 @@ void matrix_scan_keys(matrix_row_t raw_matrix[], uint8_t current_row){
                     }
                     // Disable the column
                     writePinHigh(col_pins[col_index]);
+                    //see https://github.com/SonixQMK/qmk_firmware/issues/157
+                    #if defined(DELAY_LOOP)
+                    delay();
+                    #endif
                 }
             }
         #elif(DIODE_DIRECTION == COL2ROW)
