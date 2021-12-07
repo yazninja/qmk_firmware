@@ -173,11 +173,10 @@ void matrix_scan_keys(matrix_row_t raw_matrix[], uint8_t current_row){
                     }
                     // Disable the row
                     writePinHigh(row_pins[row_index]);
-                }
-
-                // Set all column pins input low to activate leds
-                for (uint8_t col_index = 0; col_index < MATRIX_COLS; col_index++) {
-                    setPinInputLow(col_pins[col_index]);
+                    //see https://github.com/SonixQMK/qmk_firmware/issues/157
+                    #if defined(DELAY_LOOP)
+                    delay();
+                    #endif
                 }
             }
         #endif
