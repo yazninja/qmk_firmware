@@ -49,8 +49,3 @@
 #define DEBOUNCE 0
 
 #define FORCE_NKRO
-
-#if defined(OPTICAL_MATRIX)
-#define PRESSED_KEY_PIN_STATE 1
-#define DELAY_LOOP 3500
-#endif
