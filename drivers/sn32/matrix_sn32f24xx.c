@@ -31,17 +31,21 @@ Ported to QMK by Stephen Peery <https://github.com/smp4488/>
 #include "quantum.h"
 #include "rgb_matrix_sn32f24xx.h"
 
+#if defined(OPTICAL_MATRIX)
+#ifndef PRESSED_KEY_PIN_STATE
+#    define PRESSED_KEY_PIN_STATE 1
+#endif
+#ifndef MATRIX_KEY_SAMPLE_DELAY
+#    define MATRIX_KEY_SAMPLE_DELAY 2000
+#endif
+#endif
+
 #ifndef PRESSED_KEY_PIN_STATE
 #    define PRESSED_KEY_PIN_STATE 0
 #endif
 
 #ifndef MATRIX_KEY_SAMPLE_DELAY
 #    define MATRIX_KEY_SAMPLE_DELAY 100
-#endif
-
-#if defined(OPTICAL_MATRIX)
-#define PRESSED_KEY_PIN_STATE 1
-#define MATRIX_KEY_SAMPLE_DELAY 2000
 #endif
 
 #if defined(MATRIX_KEY_SAMPLE_DELAY)
