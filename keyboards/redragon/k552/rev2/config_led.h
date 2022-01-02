@@ -20,12 +20,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Backlight configuration
 #define BACKLIGHT_LEVELS 8
 
-#define LED_MATRIX_ROWS 6
+#define LED_MATRIX_ROWS MATRIX_ROWS
 #define LED_MATRIX_ROW_CHANNELS 3
 #define LED_MATRIX_ROWS_HW (LED_MATRIX_ROWS * LED_MATRIX_ROW_CHANNELS)
 #define LED_MATRIX_ROW_PINS { C0, C1, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, B6, B7, B8, B9, B10, B11 }
 
-#define LED_MATRIX_COLS 17
-#define LED_MATRIX_COL_PINS { A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, B0, B1 }
+#define LED_MATRIX_COLS MATRIX_COLS
+#define LED_MATRIX_COL_PINS MATRIX_COL_PINS
 
 #define DRIVER_LED_TOTAL (90)
