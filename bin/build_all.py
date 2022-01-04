@@ -57,6 +57,10 @@ BOARDS = [
     'ffc/ffc61',
     'gmmk/full/rev2',
     'gmmk/full/rev3',
+    'gmmk/tkl/rev2',
+    'gmmk/tkl/rev3',
+    'gmmk/compact/rev2',
+    'gmmk/compact/rev3',    
     'marvo/kg938',
     'akko/3061_rgb']
 
