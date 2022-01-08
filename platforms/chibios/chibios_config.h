@@ -88,3 +88,7 @@
 #    define PAL_OUTPUT_TYPE_PUSHPULL PAL_HT32_MODE_DIR
 #    define PAL_OUTPUT_SPEED_HIGHEST 0
 #endif
+
+#if defined(SN32F2xx)
+#    define CPU_CLOCK 48000000
+#endif
