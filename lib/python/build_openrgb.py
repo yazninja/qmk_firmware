@@ -3,17 +3,6 @@ import os
 import sys
 import re
 KEYBOARDS = []
-# Search the repository for Sonix SN32F2 keyboard directories
-commandraw = "grep -rl 'MCU = SN32F2'"
-
-retmk = subprocess.run(commandraw, capture_output=True, shell=True)
-BOARDSRAW = retmk.stdout.decode().split('\n')
-
-for mk in BOARDSRAW:
-    # We need to manipulate some non-standard directories
-    if mk.strip() != "" and mk.strip() != "lib/python/build_all.py" and mk.strip() != "lib/python/openrgb_all.py" and mk.strip() != "lib/python/build_openrgb.py":
-        subprocess.run(f"grep -qxF 'OPENRGB_ENABLE = YES' {mk} || echo '\nOPENRGB_ENABLE = YES' >> {mk}", shell=True)
-
 
 command = "grep -rl 'MCU = SN32F2' | sed -e 's/keyboards\///g' -e 's/\/rules.mk//g'| sort"
 ret = subprocess.run(command, capture_output=True, shell=True)
