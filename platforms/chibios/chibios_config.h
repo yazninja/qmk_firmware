@@ -89,6 +89,6 @@
 #    define PAL_OUTPUT_SPEED_HIGHEST 0
 #endif
 
-#if defined(SN32F2xx)
-#    define CPU_CLOCK 48000000
+#if defined(SN32F2)
+#    define CPU_CLOCK SN32_HCLK
 #endif

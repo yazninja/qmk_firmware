@@ -43,7 +43,7 @@
  * @note    Allowed values are 16, 32 or 64 bits.
  */
 #if !defined(CH_CFG_ST_RESOLUTION)
-#define CH_CFG_ST_RESOLUTION                32
+#define CH_CFG_ST_RESOLUTION                16
 #endif
 
 /**
@@ -52,7 +52,7 @@
  *          setting also defines the system tick time unit.
  */
 #if !defined(CH_CFG_ST_FREQUENCY)
-#define CH_CFG_ST_FREQUENCY                 100000
+#define CH_CFG_ST_FREQUENCY                 187500
 #endif
 
 /**
@@ -80,7 +80,7 @@
  *          this value.
  */
 #if !defined(CH_CFG_ST_TIMEDELTA)
-#define CH_CFG_ST_TIMEDELTA                 0
+#define CH_CFG_ST_TIMEDELTA                 2
 #endif
 
 /** @} */
@@ -235,7 +235,7 @@
  * @note    Requires @p CH_CFG_USE_MUTEXES.
  */
 #if !defined(CH_CFG_USE_CONDVARS)
-#define CH_CFG_USE_CONDVARS                 TRUE
+#define CH_CFG_USE_CONDVARS                 FALSE
 #endif
 
 /**
@@ -280,7 +280,7 @@
  * @note    The default is @p TRUE.
  */
 #if !defined(CH_CFG_USE_MESSAGES)
-#define CH_CFG_USE_MESSAGES                 TRUE
+#define CH_CFG_USE_MESSAGES                 FALSE
 #endif
 
 /**
@@ -338,7 +338,7 @@
  * @note    The default is @p TRUE.
  */
 #if !defined(CH_CFG_USE_MEMCORE)
-#define CH_CFG_USE_MEMCORE                  FALSE
+#define CH_CFG_USE_MEMCORE                  TRUE
 #endif
 
 /**
