@@ -4,33 +4,28 @@ import sys
 import re
 KEYBOARDS = []
 # Search the repository for Sonix SN32F2 keyboard directories
-commandraw = "grep -rl 'MCU = SN32F2'"
-
-retmk = subprocess.run(commandraw, capture_output=True, shell=True)
-BOARDSRAW = retmk.stdout.decode().split('\n')
-
-for mk in BOARDSRAW:
-    # We need to manipulate some non-standard directories
-    if mk.strip() != "" and mk.strip() != "lib/python/build_all.py" and mk.strip() != "lib/python/openrgb_all.py" and mk.strip() != "lib/python/build_openrgb.py":
-        subprocess.run(f"grep -qxF 'OPENRGB_ENABLE = YES' {mk} || echo '\nOPENRGB_ENABLE = YES' >> {mk}", shell=True)
-
-
 command = "grep -rl 'MCU = SN32F2' | sed -e 's/keyboards\///g' -e 's/\/rules.mk//g'| sort"
+
 ret = subprocess.run(command, capture_output=True, shell=True)
 BOARDS = ret.stdout.decode().split('\n')
+def main():
+    for line in BOARDS:
+        # We need to manipulate some non-standard directories
+        if line.strip() != "" and line.strip() != "lib/python/build_all.py":
+            if re.match("^(gmmk)",line.strip()):
+                KEYBOARDS.append(line.strip()+"/rev2")
+                KEYBOARDS.append(line.strip()+"/rev3")
+            if re.match("^(keychron/k)",line.strip()):
+                KEYBOARDS.append(line.strip())
+                # keychron K series white don't have yet via/optical support
+                if re.match("(?!.*white)",line.strip()):
+                    KEYBOARDS.append(line.strip()+"/via")
+                    KEYBOARDS.append(line.strip()+"/optical")
+                    KEYBOARDS.append(line.strip()+"/optical_via")
+            else: KEYBOARDS.append(line.strip())
 
-for line in BOARDS:
-    # We need to manipulate some non-standard directories
-    if line.strip() != "" and line.strip() != "lib/python/build_all.py" and line.strip() != "lib/python/openrgb_all.py" and line.strip() != "lib/python/build_openrgb.py":
-        if re.match("^(gmmk)",line.strip()):
-            KEYBOARDS.append(line.strip()+"/rev2")
-            KEYBOARDS.append(line.strip()+"/rev3")
-        if re.match("^(keychron/k)",line.strip()):
-            KEYBOARDS.append(line.strip())
-            # keychron K series white don't have yet via/optical support
-            if re.match("(?!.*white)",line.strip()):
-                KEYBOARDS.append(line.strip()+"/optical")
-        else: KEYBOARDS.append(line.strip())
+if __name__ == '__main__':
+    main()
 
 error = False
 for kb in KEYBOARDS:
