@@ -1,4 +1,5 @@
 /* Copyright 2022 Dimitris Mantzouranis <d3xter93@gmail.com>
+ * Copyright 2022 Pablo Ramirez <jp.ramangulo@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,16 +15,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
 
-#include "quantum.h"
+/* USB Device descriptor parameter */
+#define PRODUCT_ID      0xFE1A
+#define DEVICE_VER      0x0001
 
-#if defined(KEYBOARD_keychron_k2_rgb_ansi)
-    #include "ansi.h"
-#elif defined(KEYBOARD_keychron_k2_rgb_iso)
-    #include "iso.h"
-#elif defined(KEYBOARD_keychron_k2_rgb_optical_ansi)
-    #include "optical_ansi.h"
-#elif defined(KEYBOARD_keychron_k2_rgb_optical_iso)
-    #include "optical_iso.h"
-#endif
+/* RGB LED Config */
+#define DRIVER_LED_TOTAL (72)
